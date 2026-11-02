@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Mi Portafolio Profesional</title>
+</head>
+<body>
+
+    <!-- Encabezado principal del sitio -->
+    <header>
+        
+
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <section class="seccion-formulario-tareas">
+            <h2>Crear Nueva Tarea</h2>
+            <!-- Formulario para capturar los datos de la tarea -->
+             <form class="formulario-tarea">
+                <div class="formulario-grupo">
+                    <label for="titulo-tarea">Titulo de Tarea:</label>
+                    <input type="text" id="titulo-tarea" name="titulo-tarea" placeholder="Ingrese el título de la tarea" required>
+                </div>
+
+                <div class="formulario-grupo">
+                    <label for="descripcion-tarea">Descripción de Tarea:</label>
+                    <textarea id="descripcion-tarea" name="descripcion-tarea" placeholder="Ingrese la descripción de la tarea"></textarea>
+                </div>
+
+                <button type="submit">Crear Tarea</button>
+             </form>
+        </section>
+
+        <section class="seccion-lista-tareas">
+            <h2>Lista de Tareas</h2>
+            <!-- Botones de Filtro de Estado -->
+            <div class="filtros-container" style="margin-bottom: 20px; display: flex; gap: 10px;">
+                <button id="filtro-todas" class="btn-filtro activo" data-filtro="todas">Todas</button>
+                <button id="filtro-pendientes" class="btn-filtro" data-filtro="pendientes">Pendientes</button>
+                <button id="filtro-completadas" class="btn-filtro" data-filtro="completadas">Completadas</button>
+            </div>
+            <!-- Contenedor para mostrar las tareas -->
+             <div id="contenedor-tareas">
+                <!-- Aquí se agregarán las tareas dinámicamente -->
+             <p class="mensaje-vacio">No hay tareas pendientes por ahora.</p>
+             </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+/* ==========================================
+   ESTILOS GENERALES Y CONTENEDOR PRINCIPAL
+   ========================================== */
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
+}
+
+/* Estilos para el contenedor de las tarjetas y el formulario */
+section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    border: 1px solid #e1e4e8;
+}
+
+/* ==========================================
+   FORMULARIO Y ENTRADAS DE TEXTO
+   ========================================== */
+.formulario-grupo {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+input[type="text"],
+textarea {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* Botón principal de creación */
+button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   TARJETAS DE TAREAS Y FLEXBOX (MODERNO)
+   ========================================== */
+
+/* Contenedor individual de cada tarea usando FLEXBOX */
+.tarjeta-tarea {
+    display: flex;                /* Activamos Flexbox para ordenar los elementos hijos */
+    justify-content: space-between; /* Separa el bloque de info a la izquierda y los botones a la derecha */
+    align-items: center;          /* Centra verticalmente los elementos dentro de la tarjeta */
+    background-color: #fafbfc;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-tarea:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Bloque izquierdo de la tarea (checkbox, título, descripción) */
+.tarjeta-tarea .tarea-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;                    /* Espacio automático entre el checkbox y el texto */
+    flex-grow: 1;                 /* Permite que ocupe el espacio disponible */
+}
+
+/* Estilo para alinear los textos internos de la tarea en columna */
+.tarjeta-tarea .tarea-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bloque derecho de botones (Editar y Eliminar) */
+.tarjeta-acciones {
+    display: flex;
+    gap: 8px;                     /* Espacio limpio entre el botón de editar y eliminar */
+}
+
+/* Estilos profesionales para los botones de acción */
+.btn-editar,
+.btn-eliminar {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-editar {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #d68910;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Mensaje cuando la lista está vacía */
+.mensaje-vacio {
+    color: #7f8c8d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para los botones de filtros */
+.btn-filtro {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-filtro:hover {
+    background-color: #cbd5e1;
+}
+
+/* Estado activo del botón de filtro */
+.btn-filtro.activo {
+    background-color: #3498db;
+    color: white;
+}
