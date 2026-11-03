@@ -277,7 +277,7 @@ botonesFiltro.forEach(function(boton) {
 // ==========================================
 async function inicializarApp() {
     try {
-        const respuesta = await fetch('http://127.0.0.1:5000/api/tareas');
+        const respuesta = await fetch('/api/tareas');
         
         if (!respuesta.ok) {
             throw new Error(`Error en la petición: ${respuesta.status}`);
