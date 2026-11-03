@@ -2,6 +2,7 @@
 # BACKEND DE TASKMANAGER PRO CON POSTGRESQL
 # ==========================================
 
+import os
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import psycopg2
@@ -12,19 +13,28 @@ app = Flask(__name__)
 # Configuramos CORS explícitamente para permitir métodos y cabeceras
 CORS(app, resources={r"/api/*": {"origins": "*"}}, methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
-# Configuración de la conexión a PostgreSQL con tus credenciales
-DB_CONFIG = {
-    "dbname": "Gestor_Tareas",
-    "user": "postgres",
-    "password": "postgrest",
-    "host": "localhost",
-    "port": "5432"
-}
+# Configuración de la conexión a PostgreSQL (Compatible con Local y Render)
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
-# Función auxiliar para conectar a PostgreSQL
-def conectar_db():
-    conexion = psycopg2.connect(**DB_CONFIG)
-    return conexion
+if DATABASE_URL:
+    # Si estamos en la nube (Render), adaptamos la URL si empieza con 'postgres://'
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    
+    def conectar_db():
+        return psycopg2.connect(DATABASE_URL)
+else:
+    # Si estamos en tu computadora (Local), usamos el diccionario tradicional
+    DB_CONFIG = {
+        "dbname": "Gestor_Tareas",
+        "user": "postgres",
+        "password": "postgrest",
+        "host": "localhost",
+        "port": "5432"
+    }
+    
+    def conectar_db():
+        return psycopg2.connect(**DB_CONFIG)
 
 # Función para inicializar la tabla de tareas si no existe
 def inicializar_db():
