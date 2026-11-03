@@ -7,6 +7,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 
@@ -161,6 +162,19 @@ def eliminar_tarea_backend(id_tarea):
         "mensaje": "Tarea eliminada con éxito",
         "id_eliminado": id_tarea
     }), 200
+
+
+# Ruta para servir la página principal (Frontend)
+@app.route('/')
+def home():
+    return send_from_directory('.', 'index.html')
+
+# Ruta para servir los archivos estáticos (CSS, JS) desde la raíz
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('.', filename)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
