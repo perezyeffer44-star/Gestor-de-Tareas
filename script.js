@@ -111,7 +111,7 @@ async function cambiarEstadoTarea(id, titulo, descripcion, completada) {
             completada: completada
         };
 
-        const respuesta = await fetch(`http://127.0.0.1:5000/api/tareas/${id}`, {
+        const respuesta = await fetch(`/api/tareas/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,7 +139,7 @@ async function cambiarEstadoTarea(id, titulo, descripcion, completada) {
 // ==========================================
 async function eliminarTarea(indice) {
     try {
-        const respuesta = await fetch(`http://127.0.0.1:5000/api/tareas/${indice}`, {
+        const respuesta = await fetch(`/api/tareas/${indice}`, {
             method: 'DELETE'
         });
 
@@ -176,7 +176,7 @@ async function actualizarTarea(indice) {
     };
 
     try {
-        const respuesta = await fetch(`http://127.0.0.1:5000/api/tareas/${indice}`, {
+        const respuesta = await fetch(`/api/tareas/${indice}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -226,7 +226,7 @@ formulario.addEventListener('submit', async function(evento) {
     };
 
     try {
-        const respuesta = await fetch('http://127.0.0.1:5000/api/tareas', {
+        const respuesta = await fetch('/api/tareas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
